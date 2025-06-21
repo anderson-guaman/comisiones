@@ -5,6 +5,7 @@ import { ValidationPipe, Logger } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Bootstrap');
+  app.enableCors();
 
   await app.listen(process.env.PORT ?? 3000);
   logger.log(`App running on port ${ process.env.PORT }`);
